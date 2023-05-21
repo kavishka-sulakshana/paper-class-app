@@ -2,21 +2,21 @@ import '@styles/global.css';
 import Navbar from '@components/Navbar';
 
 export const metadata = {
-    title: "Layout",
-    description: "Layout description",
+  title: "Layout",
+  description: "Layout description",
 }
 
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
-        <body>
-            <div>
-                  <Navbar />
-            </div>
-            <main className='app'>
-                {children}
-            </main>
-        </body>
+      <body className='overflow-y-hidden'>
+        <div>
+          <Navbar />
+        </div>
+        <main className='app'>
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
