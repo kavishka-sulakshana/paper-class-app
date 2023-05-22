@@ -1,6 +1,9 @@
-### Note : This is a sample learning project....
+## Note : This is a learning project....
+*still developing...*
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+`nextJS` `tailwind` `mongodb`
+
+<hr>
 
 ## Getting Started
 
