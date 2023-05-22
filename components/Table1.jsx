@@ -1,9 +1,29 @@
 'use client'
 
+import Image from "next/image"
+import Link from "next/link";
+import { useEffect, useState } from "react"
+
 const Table1 = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api/student');
+                const data = await response.json();
+                setData(data);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        }
+        fetchData();
+    }, []);
+
     return (
-        <section className='flex flex-col m-3'>
-            <div className='flex text-center font-semibold bg-gray-300 py-3 rounded-tl-lg rounded-tr-lg'>
+        <section className='flex flex-col m-3 sm:mx-auto lg:w-5/6'>
+            <div className='flex text-center table-width font-semibold bg-gray-300 py-3 rounded-tl-lg rounded-tr-lg'>
                 <div className='basis-1/6'>
                     Barcode
                 </div>
@@ -20,58 +40,28 @@ const Table1 = () => {
 
                 </div>
             </div>
-
-            <div className='flex py-2 text-center odd:bg-gray-50'>
-                <div className='basis-1/6'>
-                    20457865
+            {data.map((student) => (
+                <div className='flex py-2 text-center odd:bg-gray-50' key={student._id}>
+                    <div className='basis-1/6'>
+                        {student.barcode}
+                    </div>
+                    <div className='basis-1/6'>
+                        {student.name}
+                    </div>
+                    <div className='basis-2/6'>
+                        {student.school}
+                    </div>
+                    <div className='basis-1/6'>
+                        {student.year}
+                    </div>
+                    <div className='basis-1/6  flex justify-evenly'>
+                        <Link href={`/students/update/${student._id}`}>
+                            <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
+                        </Link>
+                        <Image alt="eye" src='/assets/icons/black_eye.png' width={22} height={15} />
+                    </div>
                 </div>
-                <div className='basis-1/6'>
-                    Lamal Kumara
-                </div>
-                <div className='basis-2/6'>
-                    Nigambo College
-                </div>
-                <div className='basis-1/6'>
-                    2023
-                </div>
-                <div className='basis-1/6'>
-
-                </div>
-            </div>
-            <div className='flex py-2 text-center odd:bg-gray-50'>
-                <div className='basis-1/6'>
-                    20007865
-                </div>
-                <div className='basis-1/6'>
-                    Amal Piyantha
-                </div>
-                <div className='basis-2/6'>
-                    Gampaha College
-                </div>
-                <div className='basis-1/6'>
-                    2024
-                </div>
-                <div className='basis-1/6'>
-
-                </div>
-            </div>
-            <div className='flex py-2 text-center odd:bg-gray-50'>
-                <div className='basis-1/6'>
-                    20457865
-                </div>
-                <div className='basis-1/6'>
-                    Lamal Kumara
-                </div>
-                <div className='basis-2/6'>
-                    Nigambo College
-                </div>
-                <div className='basis-1/6'>
-                    2023
-                </div>
-                <div className='basis-1/6'>
-
-                </div>
-            </div>
+            ))}
 
         </section>
     )

@@ -10,10 +10,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
       <body className='overflow-y-hidden'>
-        <div>
-          <Navbar />
-        </div>
         <main className='app'>
+          <Navbar />
           {children}
         </main>
       </body>

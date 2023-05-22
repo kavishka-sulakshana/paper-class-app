@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
     return (
         <section className="flex w-full">
             <StudentSidebar />
-            <div className="flex-1">
+            <div className="flex-1 overflow-y-scroll" style={{ height: "100vh" }}>
                 {children}
             </div>
         </section>

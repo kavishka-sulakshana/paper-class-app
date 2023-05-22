@@ -1,28 +1,28 @@
-import mongoose from "mongoose";
+import { models, Schema, model } from "mongoose";
 
-const studentSchema = mongoose.Schema({
-    name : {
-        type : String,
-        required : true,
+const StudentSchema = new Schema({
+    name: {
+        type: String,
     },
-    barcode : {
-        type : Number,
-        required : true,
-        unique : true,
+    barcode: {
+        type: Number,
     },
-    email : {
-        type : String,
-        required : true,
-        unique : true,
-        match : [/.+\@.+\..+/, "Please enter a valid email"]
+    email: {
+        type: String,
     },
-    phone : {
-        type : String,
+    phone: {
+        type: String,
     },
-    telegram_username : {
-        type : String,
+    telegram_username: {
+        type: String,
+    },
+    school: {
+        type: String,
+    },
+    year: {
+        type: Number,
     },
 });
 
-const Student = mongoose.model("Student", studentSchema);
+const Student = models.Student || model("Student", StudentSchema);
 export default Student;
