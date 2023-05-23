@@ -29,7 +29,7 @@ const studentSidebar = () => {
       {/* space  */}
       <div className='py-2 my-1 flex items-center justify-center'></div>
 
-      <Link href='/admin_panel'>
+      <Link href='/admin_panel/classes'>
         <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
           <Image
             className='mx-3'
@@ -43,7 +43,7 @@ const studentSidebar = () => {
         </div>
       </Link>
 
-      <Link href='/admin_panel'>
+      <Link href='/admin_panel/classes/create'>
         <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
           <Image
             className='mx-3'
