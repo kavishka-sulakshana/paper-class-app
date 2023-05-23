@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link";
 import { useEffect, useState } from "react"
+import Loading from "@components/loading.jsx";
 
 const Table1 = () => {
     const [data, setData] = useState([]);
@@ -40,6 +41,9 @@ const Table1 = () => {
 
                 </div>
             </div>
+            {(data.length === 0) && (<div className='flex text-center table-width font-semibold py-3 rounded-tl-lg rounded-tr-lg'>
+                <Loading text="" width="50" height="50" />
+            </div>)}
             {data.map((student) => (
                 <div className='flex py-2 text-center odd:bg-gray-50' key={student._id}>
                     <div className='basis-1/6'>
@@ -55,7 +59,7 @@ const Table1 = () => {
                         {student.year}
                     </div>
                     <div className='basis-1/6  flex justify-evenly'>
-                        <Link href={`/students/update/${student._id}`}>
+                        <Link href={`/admin_panel/students/update/${student._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
                         <Image alt="eye" src='/assets/icons/black_eye.png' width={22} height={15} />

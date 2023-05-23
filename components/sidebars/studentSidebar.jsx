@@ -1,13 +1,24 @@
-import React from 'react';
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const studentSidebar = () => {
+
+  const [show, setShow] = useState(true);
+
+  const toggleShow = () => {
+    setShow(show => !show);
+  }
+
   return (
-    <nav className="w-56 flex flex-col pt-6 px-3 bg-blue-800 overflow-y-hidden" style={{ height: "100vh" }}>
-      <div className='text-center rounded py-2 my-1 hover:bg-blue-600 cursor-pointer text-white flex items-center justify-center'>
+    <nav className={((show) ? "w-56 " : "") + "transition duration-1000 flex flex-col pt-6 px-3 bg-blue-800 overflow-y-hidden"} style={{ height: "100vh", }}>
+      <div className='text-center rounded py-2 my-1 hover:bg-blue-600 cursor-pointer text-white flex items-center justify-center'
+        onClick={toggleShow}
+      >
         <Image
-          className='mr-3'
+          className={((!show) ? "rotate-180 " : "") + 'mx-3 transition duration-1000'}
           src='/assets/icons/nav_left.png'
           width={28}
           height={28}
@@ -18,46 +29,47 @@ const studentSidebar = () => {
       {/* space  */}
       <div className='py-2 my-1 flex items-center justify-center'></div>
 
-      <Link href='/students'>
+      <Link href='/admin_panel/students'>
         <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
           <Image
-            className='mr-3'
+            className='mx-3'
             src='/assets/icons/students.png'
             width={28}
             height={28}
             alt='students icon'
 
           ></Image>
-          All Students
+          {show && "All Students"}
         </div>
       </Link>
 
-      <Link href='/students/add'>
+      <Link href='/admin_panel/students/add'>
         <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
           <Image
-            className='mr-3'
+            className='mx-3'
             src='/assets/icons/add.png'
             width={28}
             height={28}
             alt='add student'
           ></Image>
-          Add Student
+          {show && "Add Student"}
         </div>
       </Link>
 
       <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
         <Image
-          className='mr-3'
+          className='mx-3'
           src='/assets/icons/remove.png'
           width={28}
           height={28}
           alt='remove student'
         ></Image>
-        Restrictions
+        {show && "Restrictions"}
       </div>
 
     </nav>
   )
+
 }
 
 export default studentSidebar

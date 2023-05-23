@@ -1,4 +1,5 @@
 import '@styles/global.css';
+import Navbar from '@components/Navbar';
 
 export const metadata = {
   title: "Layout",
@@ -7,13 +8,10 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang='en'>
-      <body className='overflow-y-hidden'>
-        <main className='app'>
-          {children}
-        </main>
-      </body>
-    </html>
+    <main className='app'>
+      <Navbar />
+      {children}
+    </main>
   )
 }
 

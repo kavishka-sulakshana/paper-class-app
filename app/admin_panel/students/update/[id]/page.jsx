@@ -38,7 +38,7 @@ const page = ({ params }) => {
                 body: JSON.stringify(student),
             })
             if (response.ok) {
-                router.push('/students');
+                router.push('/admin_panel/students');
             }
         } catch (error) {
             console.error(error);
