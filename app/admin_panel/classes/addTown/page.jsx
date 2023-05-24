@@ -1,23 +1,22 @@
 'use client'
 
-import FormClass from '@components/Forms/FormClass.jsx'
+import FormTown from '@components/Forms/FormTown.jsx'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const page = () => {
     const router = useRouter();
 
-    const [clz, setClz] = useState({
+    const [town, setTown] = useState({
         name: '',
-        town: ''
     });
 
-    const createClass = async (e) => {
+    const addTown = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/class/new', {
+            const response = await fetch('/api/class/newTown', {
                 method: 'POST',
-                body: JSON.stringify(clz),
+                body: JSON.stringify(town),
             })
 
             if (response.ok) {
@@ -32,14 +31,13 @@ const page = () => {
         <div className='m-5 rounded-md  flex flex-col'>
             <div className='bg-slate-50 py-4 px-3 flex justify-between'>
                 <h1 className='text-xl lg:text-2xl text-left font-bold text-blue-900'>
-                    C R E A T E - C L A S S
+                    A D D - T O W N
                 </h1>
-
             </div>
-            <FormClass
-                clz={clz}
-                setClz={setClz}
-                submission={createClass}
+            <FormTown
+                town={town}
+                setTown={setTown}
+                submission={addTown}
             />
         </div>
     )

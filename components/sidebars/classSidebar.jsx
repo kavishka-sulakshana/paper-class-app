@@ -33,13 +33,27 @@ const studentSidebar = () => {
         <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
           <Image
             className='mx-3'
-            src='/assets/icons/students.png'
+            src='/assets/icons/classroom.png'
             width={28}
             height={28}
             alt='classes icon'
 
           ></Image>
           {show && "All Classes"}
+        </div>
+      </Link>
+
+      <Link href='/admin_panel/classes/towns'>
+        <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
+          <Image
+            className='mx-3'
+            src='/assets/icons/town.png'
+            width={28}
+            height={28}
+            alt='classes icon'
+
+          ></Image>
+          {show && "All Towns"}
         </div>
       </Link>
 
@@ -56,16 +70,19 @@ const studentSidebar = () => {
         </div>
       </Link>
 
-      <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
-        <Image
-          className='mx-3'
-          src='/assets/icons/remove.png'
-          width={28}
-          height={28}
-          alt='remove student'
-        ></Image>
-        {show && "Add Town"}
-      </div>
+      <Link href='/admin_panel/classes/addTown'>
+        <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
+          <Image
+            className='mx-3'
+            src='/assets/icons/add.png'
+            width={28}
+            height={28}
+            alt='remove student'
+          ></Image>
+          {show && "Add Town"}
+        </div>
+      </Link>
+
 
     </nav>
   )

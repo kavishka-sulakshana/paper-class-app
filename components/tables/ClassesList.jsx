@@ -25,7 +25,7 @@ const ClassesList = ({ data }) => {
                 </div>
             </div>
             {(data.length === 0) && (<div className='flex text-center table-width font-semibold py-3 rounded-tl-lg rounded-tr-lg'>
-                <Loading text="No Data" width="50" height="50" />
+                <Loading text="" width="50" height="50" />
             </div>)}
             {data.length > 0 && data.map((clz) => (
                 <div className='flex py-2 text-center odd:bg-gray-50' key={clz._id}>
@@ -42,7 +42,7 @@ const ClassesList = ({ data }) => {
                         {clz.papers}
                     </div>
                     <div className='basis-1/6  flex justify-evenly'>
-                        <Link href={`/admin_panel/students/update/${clz._id}`}>
+                        <Link href={`/admin_panel/classes/update/${clz._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
                         <Image alt="eye" src='/assets/icons/black_eye.png' width={22} height={15} />

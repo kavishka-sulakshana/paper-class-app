@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import { model, models, Schema } from "mongoose";
 
-const townSchema = mongoose.Schema({
-    name : {
-        type : String,
-        required : true,
-    }
+const townSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
 });
 
-const Town = mongoose.model("Town", townSchema);
+const Town = models.Town || model("Town", townSchema);
 export default Town;
