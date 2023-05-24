@@ -1,44 +1,46 @@
-import mongoose from "mongoose";
+import { model, models, Schema } from "mongoose";
 
-const paperSchema = mongoose.Schema({
-    name : {
-        type : String,
-        required : true,
+const paperSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
     },
-    town : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Town",
-        default : "all",
+    town: {
+        type: Schema.Types.ObjectId,
+        ref: "Town",
+        default: "all",
     },
-    students : [{
-        studentID :{
-            type : mongoose.Schema.Types.ObjectId,
-            ref : "Student",
+    students: [
+        {
+            studentID: {
+                type: Schema.Types.ObjectId,
+                ref: "Student",
+            },
+            uploaded: {
+                type: Boolean,
+                default: false,
+            },
+            location: {
+                type: String,
+            },
+            marks: {
+                type: Number,
+            },
+            rank: {
+                type: Number,
+                default: 0,
+            },
         },
-        uploaded : {
-            type : Boolean,
-            default : false
-        },
-        location : {
-            type : String,
-        },
-        marks : {
-            type : Number,
-        },
-        rank : {
-            type : Number,
-            default : 0,
-        },
-    }],
-    stage : {
-        type : Number,
-        default : 0,
+    ],
+    stage: {
+        type: Number,
+        default: 0,
     },
-    total_marks : {
-        type : Number,
-        default : 100,
+    total_marks: {
+        type: Number,
+        default: 100,
     },
 });
 
-const Paper = mongoose.model("Paper", paperSchema);
+const Paper = models.Paper || model("Paper", paperSchema);
 export default Paper;

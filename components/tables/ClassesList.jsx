@@ -45,7 +45,9 @@ const ClassesList = ({ data }) => {
                         <Link href={`/admin_panel/classes/update/${clz._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
-                        <Image alt="eye" src='/assets/icons/black_eye.png' width={22} height={15} />
+                        <Link href={`/admin_panel/inClass/${clz._id}`}>
+                            <Image alt="edit" src='/assets/icons/black_eye.png' width={22} height={15} />
+                        </Link>
                     </div>
                 </div>
             ))}
