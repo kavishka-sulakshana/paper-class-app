@@ -6,8 +6,7 @@ const paperSchema = new Schema({
         required: true,
     },
     town: {
-        type: Schema.Types.ObjectId,
-        ref: "Town",
+        type: String,
         default: "all",
     },
     students: [

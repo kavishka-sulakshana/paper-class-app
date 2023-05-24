@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FormTown = ({ town, setTown, submission }) => {
     return (
         <form className='w-3/5 mx-auto mb-9 overflow-hidden' onSubmit={submission}>
