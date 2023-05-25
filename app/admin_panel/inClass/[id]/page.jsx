@@ -30,7 +30,7 @@ const Page = ({ params }) => {
       </div>
 
       <div className='py-4 px-3'>
-        <PaperList data={data} />
+        <PaperList data={data} params={params} />
       </div>
     </div>
   )

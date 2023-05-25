@@ -46,7 +46,7 @@ const ClassesList = ({ data }) => {
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
                         <Link href={`/admin_panel/inClass/${clz._id}`}>
-                            <Image alt="edit" src='/assets/icons/black_eye.png' width={22} height={15} />
+                            <Image alt="edit" src='/assets/icons/enter.png' width={22} height={15} />
                         </Link>
                     </div>
                 </div>

@@ -50,6 +50,7 @@ export const GET = async (req, { params }) => {
                 {
                     $project: {
                         results: {
+                            _id: 1,
                             name: 1,
                             town: 1,
                             total_marks: 1,

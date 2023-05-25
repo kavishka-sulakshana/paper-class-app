@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link";
 import Loading from "@components/loading.jsx";
 
-const PaperList = ({ data }) => {
+const PaperList = ({ data, params }) => {
     return (
         <section className='flex flex-col m-3 sm:mx-auto lg:w-5/6'>
             <div className='flex text-center table-width font-semibold bg-gray-300 py-3 rounded-tl-lg rounded-tr-lg'>
@@ -36,10 +36,10 @@ const PaperList = ({ data }) => {
                         {paper.total_marks}
                     </div>
                     <div className='basis-1/5  flex justify-evenly'>
-                        <Link href={`/admin_panel/papers/update/${paper._id}`}>
+                        <Link href={`/admin_panel/inClass/${params.id}/papers/update/${paper._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
-                        <Image alt="eye" src='/assets/icons/black_eye.png' width={22} height={15} />
+                        <Image alt="eye" src='/assets/icons/enter.png' width={22} height={15} />
                     </div>
                 </div>
             ))}
