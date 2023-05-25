@@ -1,8 +1,9 @@
 'use client'
 
-import AddStudent from '@components/Forms/AddStudent.jsx'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import AddStudent from '@components/Forms/AddStudent.jsx'
+import ChooseStudent from '@components/tables/ChooseStudent.jsx'
 
 const page = ({ params }) => {
     const router = useRouter();
@@ -12,36 +13,38 @@ const page = ({ params }) => {
         student_id: ''
     });
 
-    const [barcode, setBarcode] = useState('');
     const [data, setData] = useState([]);
 
-    const addStudentToClass = async (e, st) => {
+    const addStudentToClass = async (e) => {
         e.preventDefault();
-        setStudent({ ...student, student_id: st });
-        try {
-            const response = await fetch('/api/class/addStudent', {
-                method: 'POST',
-                body: JSON.stringify(student),
-            })
+        if (student.student_id !== '') {
+            try {
+                const response = await fetch('/api/class/addStudent', {
+                    method: 'POST',
+                    body: JSON.stringify(student),
+                })
 
-            if (response.ok) {
-                router.push(`/admin_panel/inClass/${params.id}/students`);
+                if (response.ok) {
+                    router.push(`/admin_panel/inClass/${params.id}/students`);
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
         }
     }
 
     const changer = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         setData([]);
         try {
             const response = await fetch(`/api/student/find/barcode`, {
                 method: 'POST',
-                body: JSON.stringify({ barcode })
+                body: JSON.stringify({ barcode: e.target.value })
             });
-            const data = await response.json();
-            setData(data);
+            if (response.ok) {
+                const data = await response.json();
+                setData(data);
+            }
         } catch (error) {
             console.error(error);
         }
@@ -56,11 +59,13 @@ const page = ({ params }) => {
 
             </div>
             <AddStudent
-                barcode={barcode}
-                setBarcode={setBarcode}
-                data={data}
                 submission={addStudentToClass}
                 changer={changer}
+            />
+            <ChooseStudent
+                data={data}
+                student={student}
+                setStudent={setStudent}
             />
         </div>
     )

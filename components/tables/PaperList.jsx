@@ -25,7 +25,7 @@ const PaperList = ({ data }) => {
                 <Loading text="" width="50" height="50" />
             </div>)}
             {data.length > 0 && data.map((paper) => (
-                <div className='flex py-2 text-center odd:bg-gray-50' key={paper._id}>
+                <div className='flex py-2 text-center odd:bg-gray-50' key={paper.name}>
                     <div className='basis-2/5'>
                         {paper.name}
                     </div>
