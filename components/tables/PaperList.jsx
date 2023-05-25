@@ -39,7 +39,9 @@ const PaperList = ({ data, params }) => {
                         <Link href={`/admin_panel/inClass/${params.id}/papers/update/${paper._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>
-                        <Image alt="eye" src='/assets/icons/enter.png' width={22} height={15} />
+                        <Link href={`/admin_panel/papers/${paper._id}`}>
+                            <Image alt="eye" src='/assets/icons/enter.png' width={22} height={15} />
+                        </Link>
                     </div>
                 </div>
             ))}
