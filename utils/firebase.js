@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDUoMCzyNp4PzdJ_QpdTNlr7-GqTdzoymY",
-    authDomain: "paper-class.firebaseapp.com",
-    projectId: "paper-class",
-    storageBucket: "paper-class.appspot.com",
-    messagingSenderId: "386960413885",
-    appId: "1:386960413885:web:210f18741195090f9093d4",
+    apiKey: process.env.FB_API_KEY,
+    authDomain: process.env.FB_AUTH_DOMAIN,
+    projectId: process.env.FB_PROJECT_ID,
+    storageBucket: process.env.FB_STORAGE_BUCKET,
+    messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
+    appId: process.env.FB_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
