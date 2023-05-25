@@ -43,20 +43,6 @@ const InClassSidebar = ({ params }) => {
                 </div>
             </Link>
 
-            <Link href={`/admin_panel/inClass/${params.id}/students`}>
-                <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
-                    <Image
-                        className='mx-3'
-                        src='/assets/icons/students.png'
-                        width={28}
-                        height={28}
-                        alt='students icon'
-
-                    ></Image>
-                    {show && "All Students"}
-                </div>
-            </Link>
-
             <Link href={`/admin_panel/inClass/${params.id}/papers/new`}>
                 <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
                     <Image
@@ -69,21 +55,6 @@ const InClassSidebar = ({ params }) => {
                     {show && "Add Paper"}
                 </div>
             </Link>
-
-            <Link href={`/admin_panel/inClass/${params.id}/students/add`}>
-                <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
-                    <Image
-                        className='mx-3'
-                        src='/assets/icons/add.png'
-                        width={28}
-                        height={28}
-                        alt='add student'
-                    ></Image>
-                    {show && "Add Student"}
-                </div>
-            </Link>
-
-
         </nav>
     )
 
