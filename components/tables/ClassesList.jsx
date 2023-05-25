@@ -8,19 +8,16 @@ const ClassesList = ({ data }) => {
     return (
         <section className='flex flex-col m-3 sm:mx-auto lg:w-5/6'>
             <div className='flex text-center table-width font-semibold bg-gray-300 py-3 rounded-tl-lg rounded-tr-lg'>
-                <div className='basis-2/6'>
+                <div className='basis-2/5'>
                     Name
                 </div>
-                <div className='basis-1/6'>
+                <div className='basis-1/5'>
                     Town
                 </div>
-                <div className='basis-1/6'>
-                    Students
-                </div>
-                <div className='basis-1/6'>
+                <div className='basis-1/5'>
                     Papers
                 </div>
-                <div className='basis-1/6'>
+                <div className='basis-1/5'>
 
                 </div>
             </div>
@@ -29,19 +26,16 @@ const ClassesList = ({ data }) => {
             </div>)}
             {data.length > 0 && data.map((clz) => (
                 <div className='flex py-2 text-center odd:bg-gray-50' key={clz._id}>
-                    <div className='basis-2/6'>
+                    <div className='basis-2/5'>
                         {clz.name}
                     </div>
-                    <div className='basis-1/6'>
+                    <div className='basis-1/5'>
                         {clz.town}
                     </div>
-                    <div className='basis-1/6'>
-                        {clz.students}
-                    </div>
-                    <div className='basis-1/6'>
+                    <div className='basis-1/5'>
                         {clz.papers}
                     </div>
-                    <div className='basis-1/6  flex justify-evenly'>
+                    <div className='basis-1/5  flex justify-evenly'>
                         <Link href={`/admin_panel/classes/update/${clz._id}`}>
                             <Image alt="edit" src='/assets/icons/black_edit.png' width={22} height={15} />
                         </Link>

@@ -5,18 +5,6 @@ const classSchema = new Schema({
         type: String,
         required: true,
     },
-    students: [
-        {
-            studentID: {
-                type: Schema.Types.ObjectId,
-                ref: "Student",
-            },
-            paid: {
-                type: Boolean,
-                default: false,
-            },
-        },
-    ],
     papers: [
         {
             paperID: {

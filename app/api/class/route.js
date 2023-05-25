@@ -9,7 +9,6 @@ export const GET = async (req, res) => {
                 $project: {
                     _id: 1,
                     name: 1,
-                    students: { $size: "$students" },
                     papers: { $size: "$papers" },
                     town: 1,
                 },

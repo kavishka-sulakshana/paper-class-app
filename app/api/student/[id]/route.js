@@ -18,3 +18,21 @@ export const GET = async (req, { params }) => {
         return new Response(JSON.stringify(error), { status: 500 });
     }
 };
+
+export const DELETE = async (req, { params }) => {
+    try {
+        await connectDB();
+        const student = await Student.findByIdAndDelete(params.id);
+        if (!student)
+            return new Response(
+                JSON.stringify({ message: "Student not found" }),
+                {
+                    status: 404,
+                }
+            );
+        return new Response(JSON.stringify(student), { status: 200 });
+    } catch (error) {
+        console.log(error);
+        return new Response(JSON.stringify(error), { status: 500 });
+    }
+};

@@ -58,7 +58,7 @@ export const GET = async (req, { params }) => {
                     },
                 },
             ]);
-            console.log(data[0].results);
+            // console.log(data[0].results);
         } else {
             data = await Class.findOne({ _id: params.id });
         }

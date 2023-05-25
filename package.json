@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "firebase": "^9.22.1",
     "mongodb": "^5.5.0",
     "mongoose": "^7.2.0",
     "next": "13.4.3",
