@@ -8,6 +8,7 @@ export const POST = async (req, res) => {
         await connectDB();
         const paperData = await Paper.findOne(
             {
+                _id: paper_id,
                 students: {
                     $elemMatch: {
                         studentID: new Types.ObjectId(student_id),

@@ -56,11 +56,11 @@ const PaperSidebar = ({ params }) => {
                 </div>
             </Link>
 
-            <Link href={`/admin_panel/papers/${params.id}`}>
+            <Link href={`/admin_panel/papers/${params.id}/settings`}>
                 <div className='text-center rounded py-2 my-1 hover:bg-blue-700 cursor-pointer text-white flex items-center justify-center'>
                     <Image
                         className='mx-3'
-                        src='/assets/icons/add.png'
+                        src='/assets/icons/settings.png'
                         width={28}
                         height={28}
                         alt='add student'

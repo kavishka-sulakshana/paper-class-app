@@ -39,6 +39,10 @@ const paperSchema = new Schema({
         type: Number,
         default: 100,
     },
+    active: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const Paper = models.Paper || model("Paper", paperSchema);
